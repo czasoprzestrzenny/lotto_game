@@ -1,6 +1,7 @@
 # lotto_game
 
 pip install lotto_game
+
 from lotto_game import lotto
 
 lotto.try_lotto('1,2,3,4,5,6')
