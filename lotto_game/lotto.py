@@ -1,4 +1,5 @@
 from random import randrange
+import logging
 
 
 def get_numbers(threshold, range_to):
@@ -34,6 +35,7 @@ def get_parially_results(partially_results, random_choice, my_input_sorted):
 
 
 def try_lotto(input_value):
+    logging.basicConfig(level="INFO")
     range_to = 49
     my_input = input_value.split(",")
     my_input = [
@@ -57,16 +59,16 @@ def try_lotto(input_value):
 
         attempt += 1
         if attempt % 1000000 == 0:
-            print(
+            logging.info(
                 f'--- number of attempts: {int(attempt/1000000)} {"millions" if attempt/1000000 >1 else "million "}  --- random choice: {random_choice}--- my_choice: {my_input_sorted} ---'
             )
-    print(
+    logging.info(
         f"--- number of attempts: {attempt}  --- random choice: {random_choice} --- my_choice: {sorted(my_input)} ---"
     )
-    print(
+    logging.info(
         f"number of attempts: {attempt}. Detailed information about partially matched before you win {partially_results}"
     )
 
 
 if __name__ == "__main__":
-    try_lotto("1,2,3,4,5,6")
+    try_lotto("1,2,3,4")
